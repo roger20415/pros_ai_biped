@@ -21,7 +21,7 @@ class RewardCalculator:
         sys.stderr.write(f"flip_bonus: {flip_bonus}\n")
 
         self._pre_foot_angle = foot_angle
-        return reward
+        return reward, stable_reward, delta_foot_angle_reward, flip_bonus
     
     def reset_pre_foot_angle(self) -> None:
         self._pre_foot_angle = 0.0

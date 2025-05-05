@@ -36,9 +36,9 @@ class Config:
     MAX_JOINT_ANGLE: float = 3.0 # degree
 
     # reward
-    STABLE_REWARD_WEIGHT: float = 0.5 # positive
-    DELTA_FOOT_ANGLE_REWARD_WEIGHT: float = -42000.0 # negative
-    FLIP_BONUS: float = 500.0 # positive
+    STABLE_REWARD_WEIGHT: float = 0.6 # positive
+    DELTA_FOOT_ANGLE_REWARD_WEIGHT: float = -40000.0 # negative
+    FLIP_BONUS: float = 100.0 # positive
 
     # waiting data time monitor
     WAITING_TIME_STOP_THRESHOLD: int =  500000 # µs
@@ -55,6 +55,9 @@ class Config:
     # reward monitor
     REWARD_PLOT_PATH: str = "./plots/reward_plot.png"
     AVERAGE_REWARD_PLOT_PATH: str = "./plots/average_reward_plot.png"
+    FOOT_ANGLE_REWARD_PLOT_PATH: str = "./plots/foot_angle_reward_plot.png"
+    FLIP_BONUS_PLOT_PATH: str = "./plots/flip_bonus_plot.png"
+    COMBINED_REWARD_PLOT_PATH: str = "./plots/combined_reward_plot.png"
 
     # duration steps monitor
     DURATION_STEPS_PLOT_PATH: str = "./plots/duration_steps_plot.png"
