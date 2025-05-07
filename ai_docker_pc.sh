@@ -30,10 +30,12 @@ run_container() {
     echo "Running the Docker container with the image $IMAGE_NAME..."
     docker run -it --rm --gpus all \
         -v "$WORKSPACE_PATH:/workspaces/rl_training_pipeline" \
+        -v "$(pwd)/gazebo_sim:/workspaces/src/gazebo_sim" \
         --network $NETWORK_NAME \
         -p 9090:9090 \
         --env-file $ENV_FILE \
         $IMAGE_NAME:$IMAGE_TAG /bin/bash || { echo "Failed to run Docker container"; exit 1; }
+
 }
 
 main() {
