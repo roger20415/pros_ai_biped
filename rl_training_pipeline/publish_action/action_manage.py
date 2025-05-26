@@ -13,7 +13,7 @@ class ActionManager:
         action = self._quantize_action_to_servo_steps(action)
         action = self._add_action_noise(action)
         target_joint_angles: list[float] = action.tolist()
-        final_joint_angles: list[float] = self._gen_sym_angles(target_joint_angles)
+        final_joint_angles: list[float] = self._add_fix_angles(target_joint_angles)
         self.action_publisher.publish_target_joint_angles(final_joint_angles)
         
     def get_action_publisher_node(self) -> Node:
@@ -31,11 +31,9 @@ class ActionManager:
 
         return np.array(noisy_action)
     
-    def _gen_sym_angles(self, target_joint_angles: list[float]) -> list[float]:
-        sym_angles = []
+    def _add_fix_angles(self, target_joint_angles: list[float]) -> list[float]:
+        
+        # r_thigh, l_calf angle
+        final_angles: list[float] = [target_joint_angles[0], 0.0]
 
-        for angle in target_joint_angles:
-            sym_angles.append(angle)
-            sym_angles.append(-angle)
-
-        return sym_angles
+        return final_angles

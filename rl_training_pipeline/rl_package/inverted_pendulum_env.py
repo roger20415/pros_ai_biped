@@ -52,6 +52,7 @@ class InvertedPendulumEnv(gym.Env):
         if self._total_step_counter % Config.N_STEPS == 0:
             reward = 0.0
         terminated: bool = self._should_terminate(self._state_dict)
+        
         self.reward_monitor.add_reward(reward)
         self.reward_monitor.add_stable_reward(stable_reward)
         self.reward_monitor.add_foot_angle_reward(delta_foot_angle_reward)
@@ -90,7 +91,7 @@ class InvertedPendulumEnv(gym.Env):
         
     def _should_terminate(self, state: dict[str, float]) -> bool:
         terminated: bool = False
-        foot_angle: float = abs(state[Config.FOOT_ANGLE_KEY])
+        foot_angle: float = abs(state[Config.L_FOOT_ANGLE_KEY])
         
         if foot_angle > Config.TERMINATE_THRESHOLD:
             terminated = True

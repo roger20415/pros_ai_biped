@@ -9,7 +9,7 @@ class RewardCalculator:
         self._pre_foot_angle: float = 0.0
 
     def calculate_reward(self, state_dict: dict[str, float], step_counter: int) -> float:
-        foot_angle: float = state_dict[Config.FOOT_ANGLE_KEY]
+        foot_angle: float = state_dict[Config.L_FOOT_ANGLE_KEY]
 
         stable_reward: float = self._cal_stable_reward(step_counter)
         delta_foot_angle_reward: float = self._cal_delta_foot_angle_reward(foot_angle)

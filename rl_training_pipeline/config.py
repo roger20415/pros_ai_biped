@@ -33,11 +33,11 @@ class Config:
     SERVO_STEP_ANGLE: float = 0.01 # degree
 
     # action
-    MAX_JOINT_ANGLE: float = 3.0 # degree
+    MAX_JOINT_ANGLE: float = 20.0 # degree
 
     # reward
     STABLE_REWARD_WEIGHT: float = 1.0 # positive
-    DELTA_FOOT_ANGLE_REWARD_WEIGHT: float = -1200.0 # negative
+    DELTA_FOOT_ANGLE_REWARD_WEIGHT: float = -120.0 # negative
     FLIP_BONUS: float = 0.0 # positive
 
     # waiting data time monitor
@@ -64,9 +64,12 @@ class Config:
     AVERATE_DURATION_STEPS_PLOT_PATH: str = "./plots/average_duration_steps_plot.png"
 
     # data dictionary keys
-    THIGH_ANGLE_KEY: str = "thigh_angle"
-    CALF_ANGLE_KEY: str = "calf_angle"
-    FOOT_ANGLE_KEY: str = "foot_angle"
+    L_THIGH_ANGLE_KEY: str = "l_thigh_angle"
+    L_CALF_ANGLE_KEY: str = "l_calf_angle"
+    L_FOOT_ANGLE_KEY: str = "l_foot_angle"
+    R_THIGH_ANGLE_KEY: str = "r_thigh_angle"
+    R_CALF_ANGLE_KEY: str = "r_calf_angle"
+    R_FOOT_ANGLE_KEY: str = "r_foot_angle"
 
     # noise level
     OBS_NOISE_LEVEL: float = 0.0

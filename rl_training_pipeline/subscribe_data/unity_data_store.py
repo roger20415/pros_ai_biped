@@ -14,9 +14,10 @@ class UnityDataStore:
         self._received_unity_data: dict[str, Float32] = {}
         
         self._if_data_ready_flags: dict[str, bool] = {
-            #Config.THIGH_ANGLE_KEY: False,
-            Config.CALF_ANGLE_KEY: False,
-            Config.FOOT_ANGLE_KEY: False,
+            Config.L_THIGH_ANGLE_KEY: False,
+            Config.L_FOOT_ANGLE_KEY: False,
+            Config.R_THIGH_ANGLE_KEY: False,
+            Config.R_FOOT_ANGLE_KEY: False
         }
 
         self._data_ready_event = threading.Event()
@@ -25,9 +26,10 @@ class UnityDataStore:
         return copy.deepcopy(self._received_unity_data)
 
     def split_and_store_received_array(self, msg: Float32MultiArray) -> None:
-        # self._store_received_data(Config.THIGH_ANGLE_KEY, msg.data[0])
-        self._store_received_data(Config.CALF_ANGLE_KEY, msg.data[1])
-        self._store_received_data(Config.FOOT_ANGLE_KEY, msg.data[2])
+        self._store_received_data(Config.L_THIGH_ANGLE_KEY, msg.data[0])
+        self._store_received_data(Config.L_FOOT_ANGLE_KEY, msg.data[1])
+        self._store_received_data(Config.R_THIGH_ANGLE_KEY, msg.data[2])
+        self._store_received_data(Config.R_FOOT_ANGLE_KEY, msg.data[3])
 
         if self._check_if_all_data_ready():
             self._data_ready_event.set()
