@@ -4,10 +4,14 @@ class DurationStepMonitor:
     def __init__(self) -> None:
         self._duration_steps: int = 0
         self._duration_steps_list: list[int] = []
+        self._foot_angle_list: list[float] = []
         self._average_duration_steps_list: list[float] = []
 
     def add_duration_steps(self) -> None:
         self._duration_steps += 1
+    
+    def add_foot_angle(self, foot_angle: float) -> None:
+        self._foot_angle_list.append(foot_angle)
 
     def append_duration_steps_to_list(self) -> None:
         if self._duration_steps != 0:
@@ -41,6 +45,17 @@ class DurationStepMonitor:
             title="Duration steps",
             xlabel="Epoch",
             ylabel="Duration steps",
+            save_path=save_path,
+            plot_type="scatter",
+        )
+
+    def save_foot_angle_plot(self, save_path: str) -> None:
+        Utils.save_plot(
+            xdata=list(range(len(self._foot_angle_list))),
+            ydata=self._foot_angle_list,
+            title="foot angle",
+            xlabel="Epoch",
+            ylabel="foot angle",
             save_path=save_path,
             plot_type="scatter",
         )

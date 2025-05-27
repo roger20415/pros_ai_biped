@@ -52,12 +52,13 @@ class InvertedPendulumEnv(gym.Env):
         if self._total_step_counter % Config.N_STEPS == 0:
             reward = 0.0
         terminated: bool = self._should_terminate(self._state_dict)
-        
+
         self.reward_monitor.add_reward(reward)
         self.reward_monitor.add_stable_reward(stable_reward)
         self.reward_monitor.add_foot_angle_reward(delta_foot_angle_reward)
         self.reward_monitor.add_flip_bonus(flip_bonus)
         self.duration_steps_monitor.add_duration_steps()
+        self.duration_steps_monitor.add_foot_angle(self._state_dict[Config.L_FOOT_ANGLE_KEY])
         self._step_counter += 1
         self._total_step_counter += 1
 
@@ -67,6 +68,7 @@ class InvertedPendulumEnv(gym.Env):
         self.duration_steps_monitor.append_duration_steps_to_list()
         self.duration_steps_monitor.save_duration_steps_plot(Config.DURATION_STEPS_PLOT_PATH)
         self.duration_steps_monitor.save_avg_duration_steps_plot(Config.AVERATE_DURATION_STEPS_PLOT_PATH)
+        self.duration_steps_monitor.save_foot_angle_plot(Config.FOOT_ANGLE_PLOT_PATH)
         
         self.reward_monitor.save_reward_plot(Config.REWARD_PLOT_PATH)
         self.reward_monitor.save_foot_angle_reward_plot(Config.FOOT_ANGLE_REWARD_PLOT_PATH)

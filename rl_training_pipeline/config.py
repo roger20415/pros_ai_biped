@@ -15,7 +15,7 @@ class Config:
     SAVE_MODEL_PATH: str = "./rl_package/Model/PPO_2025-04-07.pt"
     
     SAVE_MODEL_FREQUENCY: int = 1024
-    TRAINING_STEPS: int = 1024 * 5
+    TRAINING_STEPS: int = 1024 * 8
     LOG_INTERVAL: int = 1
     
     LEARNING_RATE: float = 0.001
@@ -62,6 +62,7 @@ class Config:
     # duration steps monitor
     DURATION_STEPS_PLOT_PATH: str = "./plots/duration_steps_plot.png"
     AVERATE_DURATION_STEPS_PLOT_PATH: str = "./plots/average_duration_steps_plot.png"
+    FOOT_ANGLE_PLOT_PATH: str = "./plots/foot_angle_plot.png"
 
     # data dictionary keys
     L_THIGH_ANGLE_KEY: str = "l_thigh_angle"
