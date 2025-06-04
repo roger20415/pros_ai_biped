@@ -15,7 +15,7 @@ class Config:
     SAVE_MODEL_PATH: str = "./rl_package/Model/PPO_2025-04-07.pt"
     
     SAVE_MODEL_FREQUENCY: int = 1024
-    TRAINING_STEPS: int = 1024 * 8
+    TRAINING_STEPS: int = 1024 * 4
     LOG_INTERVAL: int = 1
     
     LEARNING_RATE: float = 0.001
@@ -25,7 +25,7 @@ class Config:
     GAMMA: float = 0.995
 
     # stable baselines3 env
-    ACTION_NVEC: int = 1
+    ACTION_NVEC: int = 2
     TERMINATE_THRESHOLD: float = 5.0 # degree
     # WATIING_TIME_PER_STEP: float = 0.01 # second
 
@@ -37,7 +37,7 @@ class Config:
 
     # reward
     STABLE_REWARD_WEIGHT: float = 1.0 # positive
-    DELTA_FOOT_ANGLE_REWARD_WEIGHT: float = -120.0 # negative
+    DELTA_FOOT_ANGLE_REWARD_WEIGHT: float = -2000.0 # negative
     FLIP_BONUS: float = 0.0 # positive
 
     # waiting data time monitor

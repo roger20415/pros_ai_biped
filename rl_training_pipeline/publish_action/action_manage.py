@@ -33,7 +33,4 @@ class ActionManager:
     
     def _add_fix_angles(self, target_joint_angles: list[float]) -> list[float]:
         
-        # r_thigh, l_calf angle
-        final_angles: list[float] = [target_joint_angles[0], 0.0]
-
-        return final_angles
+        return target_joint_angles

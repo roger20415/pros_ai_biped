@@ -27,9 +27,10 @@ class UnityDataStore:
 
     def split_and_store_received_array(self, msg: Float32MultiArray) -> None:
         self._store_received_data(Config.L_THIGH_ANGLE_KEY, msg.data[0])
-        self._store_received_data(Config.L_FOOT_ANGLE_KEY, msg.data[1])
-        self._store_received_data(Config.R_THIGH_ANGLE_KEY, msg.data[2])
-        self._store_received_data(Config.R_FOOT_ANGLE_KEY, msg.data[3])
+        self._store_received_data(Config.L_CALF_ANGLE_KEY, msg.data[1])
+        self._store_received_data(Config.L_FOOT_ANGLE_KEY, msg.data[2])
+        self._store_received_data(Config.R_THIGH_ANGLE_KEY, msg.data[3])
+        self._store_received_data(Config.R_FOOT_ANGLE_KEY, msg.data[4])
 
         if self._check_if_all_data_ready():
             self._data_ready_event.set()
