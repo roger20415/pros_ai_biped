@@ -11,8 +11,8 @@ class Config:
     VALID_USER_INPUT_MODE: list[str] = [ValidMode.TRAIN.value, ValidMode.INFERENCE.value]
 
     # PPO model manage
-    LOAD_MODEL_PATH: str = "./rl_package/Model/PPO_2025-04-07.pt"
-    SAVE_MODEL_PATH: str = "./rl_package/Model/PPO_2025-04-07.pt"
+    LOAD_MODEL_PATH: str = "./rl_package/Model/PPO_2025-06-16.pt"
+    SAVE_MODEL_PATH: str = "./rl_package/Model/PPO_2025-06-16.pt"
     
     SAVE_MODEL_FREQUENCY: int = 1024
     TRAINING_STEPS: int = 1024 * 4
@@ -65,12 +65,14 @@ class Config:
     FOOT_ANGLE_PLOT_PATH: str = "./plots/foot_angle_plot.png"
 
     # data dictionary keys
+    BACK_ANGLE_KEY: str = "back_angle"
+    SACRUM_POS_KEY: str = "sacrum_pos"
+    L_HIP_ANGLE_KEY: str = "l_hip"
+    R_HIP_ANGLE_KEY: str = "r_hip"
     L_THIGH_ANGLE_KEY: str = "l_thigh_angle"
-    L_CALF_ANGLE_KEY: str = "l_calf_angle"
-    L_FOOT_ANGLE_KEY: str = "l_foot_angle"
     R_THIGH_ANGLE_KEY: str = "r_thigh_angle"
+    L_CALF_ANGLE_KEY: str = "l_calf_angle"
     R_CALF_ANGLE_KEY: str = "r_calf_angle"
-    R_FOOT_ANGLE_KEY: str = "r_foot_angle"
 
     # noise level
     OBS_NOISE_LEVEL: float = 0.0

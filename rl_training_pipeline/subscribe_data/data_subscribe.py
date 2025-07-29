@@ -27,11 +27,11 @@ class DataSubscriberNode(Node):
         self._unity_data_store.split_and_store_received_array(msg)
         sys.stderr.write(f"\033[35m{msg.data}\033[0m\n")
         self._print_pub_sub_info(
-            msg.data[5],
-            msg.data[6],
+            msg.data[8],
+            msg.data[9],
             now_seconds
         )
-        self._last_pub_time = msg.data[6]
+        self._last_pub_time = msg.data[9]
 
 
     def _print_pub_sub_info(self, fixupdate_count: float, pub_time: float, sub_time: float) -> None:
